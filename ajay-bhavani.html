@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ajay Rajesh &amp; Bhavani – Wedding Invitation</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;1,400&family=Lora:ital@0;1&family=Great+Vibes&display=swap" rel="stylesheet">
+<style>
+:root{--ivory:#fbf3e2;--green:#12473a;--deep:#0b2e25;--marigold:#f0a020;--rose:#b5485d;--ink:#3a2a20}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--ivory);color:var(--ink);font-family:'Lora',Georgia,serif}
+body.lock{overflow:hidden;height:100%}
+
+/* ---------- Curtain ---------- */
+#curtain{position:fixed;inset:0;z-index:50;display:flex;pointer-events:auto}
+#curtain.gone{pointer-events:none}
+.door{flex:1;background:repeating-linear-gradient(90deg,var(--deep) 0 14px,#14594a 14px 28px,var(--deep) 28px 42px);transition:transform 1.6s cubic-bezier(.7,0,.2,1);box-shadow:0 0 40px #000a}
+.door.l{transform-origin:left}.door.r{transform-origin:right}
+#curtain.gone .l{transform:translateX(-101%)}
+#curtain.gone .r{transform:translateX(101%)}
+.cover{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;color:#fbe9bf;padding:24px;transition:opacity .6s}
+#curtain.gone .cover{opacity:0}
+.cover .tiny{font-size:.85rem;letter-spacing:.25em;opacity:.8}
+.cover h1{font-family:'Great Vibes',cursive;font-weight:400;font-size:clamp(3rem,15vw,5rem);line-height:1.05;margin:18px 0;color:#ffd47a}
+.cover h1 span{display:block;font-family:'Playfair Display',serif;font-style:italic;font-size:1.6rem;color:#fbe9bf}
+.cover button{margin-top:30px;background:var(--marigold);color:var(--deep);border:0;padding:16px 34px;border-radius:40px;font-family:'Lora',serif;font-size:1rem;font-weight:700;cursor:pointer;animation:glow 2s infinite}
+@keyframes glow{50%{box-shadow:0 0 0 14px #f0a02033}}
+
+/* ---------- Page ---------- */
+section{max-width:560px;margin:0 auto;padding:70px 26px;text-align:center}
+.hero{background:linear-gradient(var(--green),var(--deep));max-width:none;color:#fbe9bf;padding:90px 26px 70px}
+.hero h2{font-family:'Great Vibes',cursive;font-weight:400;font-size:clamp(3.2rem,16vw,5.2rem);color:#ffd47a;line-height:1.1}
+.hero h2 em{font-family:'Playfair Display',serif;font-size:1.5rem;display:block;color:#fbe9bf;margin:6px 0}
+.hero p{margin-top:18px;font-style:italic;font-size:1.1rem}
+.frame{width:min(78vw,300px);aspect-ratio:3/4;margin:34px auto 0;border-radius:150px 150px 10px 10px;border:3px solid var(--marigold);padding:7px;background:#0000}
+.frame>div{width:100%;height:100%}
+.ph{position:relative;overflow:hidden;background:linear-gradient(135deg,#f6d9a6,#e5a7a7);display:flex;align-items:center;justify-content:center;color:#7a4b3a;font-family:'Great Vibes',cursive;font-size:2.6rem}
+.ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.frame .ph{border-radius:143px 143px 4px 4px}
+h3{font-family:'Playfair Display',serif;font-weight:500;font-size:1.6rem;color:var(--green);margin-bottom:6px}
+.sub{font-style:italic;color:var(--rose);margin-bottom:26px}
+
+/* love story timeline */
+.story{position:relative;padding:20px 0 0}
+.story::before{content:"";position:absolute;left:50%;top:0;bottom:0;width:2px;background:repeating-linear-gradient(var(--rose) 0 8px,transparent 8px 16px);opacity:.5}
+.chap{position:relative;background:#fff9ec;border:1px solid #e6d2a8;border-radius:14px;padding:14px 14px 22px;margin:0 0 46px;box-shadow:0 10px 26px #3a2a2018;opacity:0;transform:translateY(30px);transition:.9s}
+.chap.in{opacity:1;transform:none}
+.chap:nth-child(odd){transform-origin:left;rotate:-1.2deg}.chap:nth-child(even){rotate:1.2deg}
+.chap .ph{aspect-ratio:4/3;border-radius:8px;margin-bottom:14px}
+.chap .yr{display:inline-block;background:var(--marigold);color:var(--deep);font-weight:700;font-size:.8rem;padding:3px 14px;border-radius:20px;margin-bottom:8px}
+.chap h4{font-family:'Playfair Display',serif;font-size:1.3rem;color:var(--green);margin-bottom:6px}
+.chap p{line-height:1.7}
+
+.details{background:var(--green);color:#fbe9bf;max-width:none}
+.details .box{max-width:520px;margin:0 auto}
+.details h3{color:#ffd47a}
+.det{border:1px solid #ffd47a55;border-radius:16px;padding:22px;margin-top:22px}
+.det b{display:block;font-family:'Playfair Display',serif;font-size:1.35rem;color:#ffd47a;margin-bottom:6px}
+.det p{line-height:1.6}
+.cd{display:flex;justify-content:center;gap:12px;margin:26px 0 0}
+.cd div{width:70px;padding:12px 0;border-radius:12px;background:#ffffff14}
+.cd strong{display:block;font-size:1.6rem;color:#ffd47a;font-family:'Playfair Display',serif}
+.cd span{font-size:.7rem;letter-spacing:.1em}
+.map{display:inline-block;margin-top:14px;color:var(--deep);background:var(--marigold);padding:11px 22px;border-radius:30px;text-decoration:none;font-weight:700;font-size:.9rem}
+.end{padding-bottom:110px}
+.end .sig{font-family:'Great Vibes',cursive;font-size:2.6rem;color:var(--rose);margin-top:14px}
+
+/* music */
+#music{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:60;width:50px;height:50px;border-radius:50%;border:0;background:var(--marigold);color:var(--deep);font-size:1.3rem;cursor:pointer;display:none;box-shadow:0 6px 16px #0006}
+#music.on{display:block}
+#music.spin{animation:sp 4s linear infinite}
+@keyframes sp{to{transform:rotate(360deg)}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition-duration:.01s!important}}
+</style>
+</head>
+<body class="lock">
+<audio id="song" src="song.mp3" loop preload="auto"></audio>
+
+<div id="curtain">
+  <div class="door l"></div><div class="door r"></div>
+  <div class="cover">
+    <div class="tiny">WE ARE GETTING MARRIED</div>
+    <h1>Ajay<span>&amp;</span>Bhavani</h1>
+    <div class="tiny">A LOVE STORY, JUST FOR YOU</div>
+    <button id="open">Open our invitation</button>
+  </div>
+</div>
+
+<section class="hero">
+  <div class="sub" style="color:#fbe9bf;opacity:.8">Together with our families</div>
+  <h2>Ajay Rajesh<em>weds</em>Bhavani</h2>
+  <div class="frame"><div class="ph"><span>A &amp; B</span><img src="photo-main.jpg" alt="Ajay and Bhavani" onerror="this.remove()"></div></div>
+  <p>Our story began long before this day…</p>
+</section>
+
+<section>
+  <h3>Our Love Story</h3>
+  <div class="sub">Scroll down and walk with us</div>
+  <div class="story">
+    <div class="chap"><div class="ph"><span>Bus Stop</span><img src="photo1.jpg" alt="" onerror="this.remove()"></div><span class="yr">The Beginning</span><h4>A bus stop, a first look</h4><p>Oru bus stop la dhaan namma kadhai start aachu. Bus-ku wait pannitu irundha andha konja neram, life-ae maathidum nu yaarukkum theriyala.</p></div>
+    <div class="chap"><div class="ph"><span>Secret Meets</span><img src="photo2.jpg" alt="" onerror="this.remove()"></div><span class="yr">Our Secret</span><h4>Namma secret meetings</h4><p>Yaarukkum theriyama neraiya thadava sandhichom. Chinna chinna nimishangal, perya perya kanavugal.</p></div>
+    <div class="chap"><div class="ph"><span>Forever</span><img src="photo3.jpg" alt="" onerror="this.remove()"></div><span class="yr">2027</span><h4>Secret-la irundhu forever-ku</h4><p>Ippo ellaarukkum sollitu, ungal ellaarum munnaadi namma kalyanam. Neengalum vaanga, aasirvadham pannunga.</p></div>
+  </div>
+</section>
+
+<section class="details">
+  <div class="box">
+    <h3>Join Us</h3>
+    <div class="cd" id="cd"><div><strong id="d">0</strong><span>DAYS</span></div><div><strong id="h">0</strong><span>HOURS</span></div><div><strong id="m">0</strong><span>MINS</span></div></div>
+    <div class="det"><b>Wedding</b><p>Sunday, 14 February 2027<br>Muhurtham 9:00 AM – 10:30 AM</p></div>
+    <div class="det"><b>Venue</b><p>Venue name here<br>Street, Town, Tamil Nadu</p><a class="map" href="https://maps.google.com/?q=Madurai" target="_blank" rel="noopener">Open in Maps</a></div>
+    <div class="det"><b>Reception</b><p>Saturday, 13 February 2027<br>6:30 PM onwards</p></div>
+  </div>
+</section>
+
+<section class="end">
+  <h3>Your blessings matter most</h3>
+  <p style="line-height:1.7">Please come, bless us, and celebrate the start of our new journey.</p>
+  <div class="sig">Ajay &amp; Bhavani</div>
+</section>
+
+<button id="music" aria-label="Toggle music">♪</button>
+
+<script>
+const song=document.getElementById('song'),mus=document.getElementById('music'),cur=document.getElementById('curtain');
+document.getElementById('open').onclick=()=>{
+  cur.classList.add('gone');document.body.classList.remove('lock');
+  mus.classList.add('on','spin');song.volume=.7;song.play().catch(()=>{});
+  setTimeout(()=>cur.style.display='none',1800);
+};
+mus.onclick=()=>{if(song.paused){song.play();mus.classList.add('spin')}else{song.pause();mus.classList.remove('spin')}};
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.2});
+document.querySelectorAll('.chap').forEach(el=>io.observe(el));
+const target=new Date('2027-02-14T09:00:00+05:30');
+function tick(){const t=Math.max(0,target-new Date());
+  d.textContent=Math.floor(t/864e5);h.textContent=Math.floor(t%864e5/36e5);m.textContent=Math.floor(t%36e5/6e4)}
+tick();setInterval(tick,30000);
+</script>
+</body>
+</html>
